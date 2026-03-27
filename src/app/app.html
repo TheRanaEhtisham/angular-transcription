@@ -1,0 +1,11 @@
+<input type="file" accept=".wav,.mp3,.ogg,.flac" (change)="onFileSelected($event)" />
+<button (click)="uploadFile()" [disabled]="!selectedFile">Upload & Transcribe</button>
+
+<div *ngIf="segments.length">
+  <h3>Transcription Segments</h3>
+  <ul>
+    <li *ngFor="let seg of segments">
+      [{{ seg.start | number:'1.1-1' }}s - {{ seg.end | number:'1.1-1' }}s] {{ seg.text }}
+    </li>
+  </ul>
+</div>
